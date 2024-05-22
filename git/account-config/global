@@ -51,3 +51,6 @@
     enabled = true
 [safe]
     directory = /var/www/html
+[user]
+	email = holzerdaniel01@gmail.com
+	name = DaniHolzer

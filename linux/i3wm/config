@@ -44,7 +44,14 @@ assign [class="^Google-chrome$"] $ws2
 assign [class="^Polypane$"] $ws3
 assign [class="^Alacritty$"] $ws4
 
+#- Assign workspaces to monitors:
+set $LaptopMonitor eDP-1
+set $BigMonitor DP-2-3
 
+workspace 1 output $BigMonitor
+workspace 2 output $BigMonitor
+workspace 3 output $BigMonitor
+workspace 4 output $BigMonitor
 
 #------------------------------------------------------------------------------
 #----- Windows
@@ -64,6 +71,17 @@ bindsym $super+Shift+j move down
 bindsym $super+Shift+k move up
 bindsym $super+Shift+l move right
 
+#- Move window to other workspace 
+bindsym $super+Shift+1 move container to workspace 1
+bindsym $super+Shift+2 move container to workspace 2
+bindsym $super+Shift+3 move container to workspace 3
+bindsym $super+Shift+4 move container to workspace 4
+bindsym $super+Shift+5 move container to workspace 5
+bindsym $super+Shift+6 move container to workspace 6
+bindsym $super+Shift+7 move container to workspace 7
+bindsym $super+Shift+8 move container to workspace 8
+bindsym $super+Shift+9 move container to workspace 9
+
 #- Resize horizontally:
 bindsym $alt+Shift+h resize grow width 20 px or 20 ppt
 bindsym $alt+Shift+l resize shrink width 20 px or 20 ppt
@@ -71,7 +89,6 @@ bindsym $alt+Shift+l resize shrink width 20 px or 20 ppt
 #- Resize vertically:
 bindsym $alt+Shift+k resize grow height 20 px or 20 ppt
 bindsym $alt+Shift+j resize shrink height 20 px or 20 ppt
-
 
 
 #------------------------------------------------------------------------------
