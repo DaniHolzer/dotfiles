@@ -32,7 +32,7 @@ floating_modifier $alt
 # Start NordPass:
 #exec --no-startup-id /snap/bin/nordpass
 # Start Chrome:
-#exec --no-startup-id /usr/bin/google-chrome-stable
+exec --no-startup-id /usr/bin/google-chrome-stable
 # Start Polypane:
 #exec --no-startup-id /usr/bin/polypane
 # Start Alacritty:
@@ -52,6 +52,9 @@ workspace 1 output $BigMonitor
 workspace 2 output $BigMonitor
 workspace 3 output $BigMonitor
 workspace 4 output $BigMonitor
+workspace 5 output $LaptopMonitor
+workspace 6 output $LaptopMonitor
+workspace 7 output $LaptopMonitor
 
 #------------------------------------------------------------------------------
 #----- Windows
@@ -71,7 +74,7 @@ bindsym $super+Shift+j move down
 bindsym $super+Shift+k move up
 bindsym $super+Shift+l move right
 
-#- Move window to other workspace 
+#- Move window to other workspace
 bindsym $super+Shift+1 move container to workspace 1
 bindsym $super+Shift+2 move container to workspace 2
 bindsym $super+Shift+3 move container to workspace 3
