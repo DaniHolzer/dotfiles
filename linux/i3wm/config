@@ -98,16 +98,16 @@ bindsym $alt+Shift+j resize shrink height 20 px or 20 ppt
 #----- Workspaces
 
 #- Workspace switching:
-bindsym $super+1 workspace number $ws1
-bindsym $super+2 workspace number $ws2
-bindsym $super+3 workspace number $ws3
-bindsym $super+4 workspace number $ws4
-bindsym $super+5 workspace number $ws5
-bindsym $super+6 workspace number $ws6
-bindsym $super+7 workspace number $ws7
-bindsym $super+8 workspace number $ws8
-bindsym $super+9 workspace number $ws9
-bindsym $super+0 workspace number $ws10
+bindsym $super+$alt+$ctrl+1 workspace number $ws1
+bindsym $super+$alt+$ctrl+2 workspace number $ws2
+bindsym $super+$alt+$ctrl+3 workspace number $ws3
+bindsym $super+$alt+$ctrl+4 workspace number $ws4
+bindsym $super+$alt+$ctrl+5 workspace number $ws5
+bindsym $super+$alt+$ctrl+6 workspace number $ws6
+bindsym $super+$alt+$ctrl+7 workspace number $ws7
+bindsym $super+$alt+$ctrl+8 workspace number $ws8
+bindsym $super+$alt+$ctrl+9 workspace number $ws9
+bindsym $super+$alt+$ctrl+0 workspace number $ws10
 
 #- Move focused container to workspace:
 # bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -194,7 +194,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # focus the child container
 #bindsym $mod+d focus child
 
-# reload the configuration file
+# RRioad the configuration file
 # bindsym $mod+Shift+c reload # i3wm reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 # bindsym $mod+Shift+r restart

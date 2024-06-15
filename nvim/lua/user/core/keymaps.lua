@@ -66,7 +66,6 @@ vim.keymap.set("n", "Y", "y$") -- Yank to end of line.
 
 vim.keymap.set("n", "x", '"_x') -- If delete one char, don't copy it to the clipboard.
 
--- vim.keymap.set('n', ';;', '<Esc>A;<Esc>')                               -- Insert a ; at the end of a line.
 vim.keymap.set("n", ",,", "<Esc>A,<Esc>") -- Insert a , at the end of a line.
 vim.keymap.set("n", "::", "<Esc>A:<Esc>") -- Insert a : at the end of a line.
 
