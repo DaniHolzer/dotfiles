@@ -31,7 +31,7 @@ VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
-zstyle ':omz:update' mode auto      # update automatically without asking
+zstyle ':omz:update' mode auto # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
@@ -53,7 +53,6 @@ zstyle ':omz:update' frequency 7
 # There is maybe an issue with multiline commands:
 COMPLETION_WAITING_DOTS="true"
 
-
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
@@ -68,24 +67,23 @@ HIST_STAMPS="yyyy-mm-dd"
 #ZSH_CUSTOM="$DOTFILES/zsh"
 ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 
-
 # Plugins (too many plugins slow down shell startup):
 # Maybe worth: web-search, laravel5, artisan, composer, docker, docker-compose
 plugins=(
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-  npm
-  vi-mode
-  git
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    npm
+    vi-mode
+    git
 )
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+    export EDITOR='vim'
 else
-  export EDITOR='nvim'
+    export EDITOR='nvim'
 fi
 export VISUAL='nvim'
 
@@ -127,7 +125,7 @@ export BROWSER="/usr/bin/google-chrome-stable"
 bindkey -s ^f "~/dotfiles/tmux/tmux-sessionizer.sh\n"
 
 # Source Rust:
-. "$HOME/.cargo/env"
+# . "$HOME/.cargo/env"
 
 # Set terminal emulator:
 export TERM="alacritty"
