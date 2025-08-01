@@ -129,3 +129,4 @@ bindkey -s ^f "~/dotfiles/tmux/tmux-sessionizer.sh\n"
 
 # Set terminal emulator:
 export TERM="alacritty"
+alias sail='./vendor/bin/sail'
