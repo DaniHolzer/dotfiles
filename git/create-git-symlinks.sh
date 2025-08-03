@@ -9,6 +9,13 @@ DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 #-----------------------------------------------------------------------------
 #  Git Configs
 #-----------------------------------------------------------------------------
+# Create symling:
+ln -s /path/to/file /path/to/symlink_file
+  # Creates a symbolic link named symlink_file in the current directory,
+  # pointing to the file /path/to/file
+
+# Create symling to git configfile in dotfiles:
+ln -s home/holze/dotfiles/git/account-config/work/github ./.gitconfig
 
 # Delete ~/.gitconfig:
 rm -rf $HOME/.gitconfig

@@ -6,11 +6,3 @@
 [user]
     name     = Dani Holzer
     email    = holzerdaniel01@gmail.com
-
-#-----------------------------------------------------------------------------
-#  fITcrew GitLab Configuration
-#-----------------------------------------------------------------------------
-
-[user]
-    name     = daniel.holzer
-    email    = daniel.holzer@fitcrew.tech

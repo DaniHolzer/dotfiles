@@ -17,8 +17,8 @@
 [includeIf "gitdir:~/ansible/*"]
     path = ~/dotfiles/git/account-config/github
 
-# Work VdS GitHub:
-[includeIf "gitdir:~/work/vds/github/*"]
+# Work fitcrew GitHub:
+[includeIf "gitdir:~/work/fitcrew/github/*"]
     path = ~/dotfiles/git/account-config/work/github
 
 # Work fitcrew GitLab:

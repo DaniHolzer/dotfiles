@@ -1,8 +1,8 @@
 
 #-----------------------------------------------------------------------------
-#  fITcrew GitHub Configuration
+#  fITcrew GitLab Configuration
 #-----------------------------------------------------------------------------
 
 [user]
-    name     = daniel-holzer
+    name     = daniel.holzer
     email    = daniel.holzer@fitcrew.tech
