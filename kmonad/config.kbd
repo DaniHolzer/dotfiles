@@ -1,10 +1,13 @@
-(defalias
-  lwm (layer-toggle windowm)
-  lwm-hold (tap-hold-next 400 a lsft)
+;; KMonad configuration for window management layer switching
+;; Hold 'a' or ';' to access window switching layer with numbers
 
 (defcfg
-  input (device-file "/dev/input/by-path/platform-i8042-serio-0-event-kbd")
-  output (uinput-sink "kmonad")
+  input  (device-file "/dev/input/event4")
+  output (uinput-sink "KMonad output")
+  cmp-seq ralt
+  cmp-seq-delay 5
+  fallthrough true
+  allow-cmd false
 )
 
 (defsrc
@@ -12,23 +15,45 @@
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
   caps a    s    d    f    g    h    j    k    l    ;    '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt           spc            ralt rmet cmp  rctl
+  lctl lmet lalt           spc            ralt rmet menu rctl
 )
 
+(defalias
+  ;; Layer switching aliases
+  ;; Hold 'a' for window management layer
+  a_win (tap-hold-next-release 200 a (layer-toggle windowm))
 
+  ;; Hold ';' for window management layer
+  sc_win (tap-hold-next-release 200 ; (layer-toggle windowm))
+
+  ;; Window switching shortcuts (i3wm style)
+  ;; These will send Ctrl+Super+Alt+number for workspace switching
+  win1 C-M-A-1
+  win2 C-M-A-2
+  win3 C-M-A-3
+  win4 C-M-A-4
+  win5 C-M-A-5
+  win6 C-M-A-6
+  win7 C-M-A-7
+  win8 C-M-A-8
+  win9 C-M-A-9
+  win0 C-M-A-0
+)
+
+;; Base layer - normal QWERTY with layer switching keys
 (deflayer base
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
-  caps @lwm    s    d    f    g    h    j    k    l    ;    '    ret
+  caps @a_win s    d    f    g    h    j    k    l    @sc_win '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt           spc            ralt rmet cmp  rctl
+  lctl lmet lalt           spc            ralt rmet menu rctl
 )
 
+;; Window management layer - activated by holding 'a' or ';'
 (deflayer windowm
-  _    @mc1 @mc2 @mc3 @mc4 @mc5 @mc6 _    _    _    _    _    _    _
+  _    @win1 @win2 @win3 @win4 @win5 @win6 @win7 @win8 @win9 @win0 _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _              _              _    _    _    _
 )
-
