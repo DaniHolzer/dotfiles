@@ -22,9 +22,12 @@
   ;; Layer switching aliases
   ;; Hold 'a' for window management layer
   a_win (tap-hold-next-release 200 a (layer-toggle windowm))
-
   ;; Hold ';' for window management layer
   sc_win (tap-hold-next-release 200 ; (layer-toggle windowm))
+
+  ;; LT(4,KC_D) = tap D, hold for layer 4 (vim/tmux)
+  d_tmux (tap-hold-next-release 200 d (layer-toggle tmux))
+  k_tmux (tap-hold-next-release 200 k (layer-toggle tmux))
 
   ;; windowm
     ;; Window switching shortcuts (i3wm style)
@@ -46,11 +49,21 @@
     ;; Fuzzy finder
     fzf C-f
 
-    ;; Move to windows
+    ;; Window movement between workspaces (Alt+Cmd+hjkl)
     winr A-M-h
     winl A-M-l
     winu A-M-k
     wind A-M-j
+    ;; Window focus and movement (Alt+Shift+hjkl)
+    focH A-S-h
+    focJ A-S-j
+    focK A-S-k
+    focL A-S-l
+
+
+  ;; Vim/Tmux layer (Layer 4) - Common tmux shortcuts
+  ;; These are placeholder - adjust to match your actual tmux prefix
+tmx1 (send-keys C-b 1))
 )
 
 
@@ -58,7 +71,7 @@
 (deflayer base
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
-  caps @a_win s    d    f    g    h    j    k    l    @sc_win '    ret
+  caps @a_win s    @d_tmux    f    g    h    j    @k_tmux    l    @sc_win '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
   lctl lmet lalt           spc            ralt rmet menu rctl
 )
@@ -68,7 +81,7 @@
   @kwin @win1 @win2 @win3 @win4 @win5 @win6 @win7 @win8 @win9 @win0 _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    @fzf    _    @winr @wind @winu @winl    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    @focH @focJ @focK @focL     _    _
   _    _    _              _              _    _    _    _
 )
 
@@ -77,6 +90,15 @@
   @kwin @win1 @win2 @win3 @win4 @win5 @win6 @win7 @win8 @win9 @win0 _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    @fzf    _    @winr @wind @winu @winl    _    _    _
+  _    _    _    _    _    _    @focH @focJ @focK @focL     _    _
+  _    _    _              _              _    _    _    _
+)
+
+;; Layer 4 - Tmux commands (accessed by holding D or K)
+(deflayer tmux
+  _    @tmx1 @tmx2 @tmx3 @tmx4 @tmx5 @tmx6 @tmx7 @tmx8 @tmx9 @tmx0 _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    @fzf    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _              _              _    _    _    _
 )
