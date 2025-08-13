@@ -26,19 +26,33 @@
   ;; Hold ';' for window management layer
   sc_win (tap-hold-next-release 200 ; (layer-toggle windowm))
 
-  ;; Window switching shortcuts (i3wm style)
-  ;; These will send Ctrl+Super+Alt+number for workspace switching
-  win1 C-M-A-1
-  win2 C-M-A-2
-  win3 C-M-A-3
-  win4 C-M-A-4
-  win5 C-M-A-5
-  win6 C-M-A-6
-  win7 C-M-A-7
-  win8 C-M-A-8
-  win9 C-M-A-9
-  win0 C-M-A-0
+  ;; windowm
+    ;; Window switching shortcuts (i3wm style)
+    ;; These will send Ctrl+Super+Alt+number for workspace switching
+    win1 C-M-A-1
+    win2 C-M-A-2
+    win3 C-M-A-3
+    win4 C-M-A-4
+    win5 C-M-A-5
+    win6 C-M-A-6
+    win7 C-M-A-7
+    win8 C-M-A-8
+    win9 C-M-A-9
+    win0 C-M-A-0
+
+    ;; Kill current window
+    kwin C-w
+
+    ;; Fuzzy finder
+    fzf C-f
+
+    ;; Move to windows
+    winr A-M-h
+    winl A-M-l
+    winu A-M-k
+    wind A-M-j
 )
+
 
 ;; Base layer - normal QWERTY with layer switching keys
 (deflayer base
@@ -51,9 +65,18 @@
 
 ;; Window management layer - activated by holding 'a' or ';'
 (deflayer windowm
-  _    @win1 @win2 @win3 @win4 @win5 @win6 @win7 @win8 @win9 @win0 _    _    _
+  @kwin @win1 @win2 @win3 @win4 @win5 @win6 @win7 @win8 @win9 @win0 _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    @fzf    _    @winr @wind @winu @winl    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _    _
+)
+
+;; Tmux layer - activated by holding 'a' or ';'
+(deflayer windowm
+  @kwin @win1 @win2 @win3 @win4 @win5 @win6 @win7 @win8 @win9 @win0 _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    @fzf    _    @winr @wind @winu @winl    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _              _              _    _    _    _
 )
