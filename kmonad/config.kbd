@@ -7,7 +7,7 @@
   cmp-seq ralt
   cmp-seq-delay 5
   fallthrough true
-  allow-cmd false
+  allow-cmd true
 )
 
 (defsrc
@@ -20,58 +20,82 @@
 
 (defalias
   ;; Layer switching aliases
-  ;; Hold 'a' for window management layer
+  ;; Hold 'a' or ';' for window management layer
   a_win (tap-hold-next-release 200 a (layer-toggle windowm))
-  ;; Hold ';' for window management layer
   sc_win (tap-hold-next-release 200 ; (layer-toggle windowm))
 
-  ;; LT(4,KC_D) = tap D, hold for layer 4 (vim/tmux)
+  ;; Hold 'd' or 'k' for tmux layer
   d_tmux (tap-hold-next-release 200 d (layer-toggle tmux))
   k_tmux (tap-hold-next-release 200 k (layer-toggle tmux))
 
-  ;; windowm
-    ;; Window switching shortcuts (i3wm style)
-    ;; These will send Ctrl+Super+Alt+number for workspace switching
-    win1 C-M-A-1
-    win2 C-M-A-2
-    win3 C-M-A-3
-    win4 C-M-A-4
-    win5 C-M-A-5
-    win6 C-M-A-6
-    win7 C-M-A-7
-    win8 C-M-A-8
-    win9 C-M-A-9
-    win0 C-M-A-0
+  ;; Hold 'g' or 'h' for nvim layer
+  g_nvim (tap-hold-next-release 200 g (layer-toggle nvim))
+  h_nvim (tap-hold-next-release 200 h (layer-toggle nvim))
 
-    ;; Kill current window
-    kwin C-w
+  ;; Window management shortcuts (i3wm style)
+        ;; These will send Ctrl+Super+Alt+number for workspace switching
+        win1 C-M-A-1
+        win2 C-M-A-2
+        win3 C-M-A-3
+        win4 C-M-A-4
+        win5 C-M-A-5
+        win6 C-M-A-6
+        win7 C-M-A-7
+        win8 C-M-A-8
+        win9 C-M-A-9
+        win0 C-M-A-0
 
-    ;; Fuzzy finder
-    fzf C-f
+        ;; Kill current window
+        kwin C-w
 
-    ;; Window movement between workspaces (Alt+Cmd+hjkl)
-    winr A-M-h
-    winl A-M-l
-    winu A-M-k
-    wind A-M-j
-    ;; Window focus and movement (Alt+Shift+hjkl)
-    focH A-S-h
-    focJ A-S-j
-    focK A-S-k
-    focL A-S-l
+        ;; Fuzzy finder
+        fzf C-f
 
+        ;; Window movement between workspaces (Alt+Cmd+hjkl)
+        winr A-M-l
+        winl A-M-h
+        winu A-M-k
+        wind A-M-j
 
-  ;; Vim/Tmux layer (Layer 4) - Common tmux shortcuts
-  ;; These are placeholder - adjust to match your actual tmux prefix
-tmx1 (send-keys C-b 1))
+        ;; Window focus and movement (Alt+Shift+hjkl)
+        focH A-S-h
+        focJ A-S-j
+        focK A-S-k
+        focL A-S-l
+
+  ;; Tmux shortcuts - Send Ctrl+B then number using xdotool
+        tmx1 (cmd-button "xdotool key ctrl+b 1")
+        tmx2 (cmd-button "xdotool key ctrl+b 2")
+        tmx3 (cmd-button "xdotool key ctrl+b 3")
+        tmx4 (cmd-button "xdotool key ctrl+b 4")
+        tmx5 (cmd-button "xdotool key ctrl+b 5")
+        tmx6 (cmd-button "xdotool key ctrl+b 6")
+        tmx7 (cmd-button "xdotool key ctrl+b 7")
+        tmx8 (cmd-button "xdotool key ctrl+b 8")
+        tmx9 (cmd-button "xdotool key ctrl+b 9")
+        tmx0 (cmd-button "xdotool key ctrl+b 0")
+
+  ;; Tmux scroll down/up
+        tmxup C-u
+        tmxdwn C-d
+
+  ;; Tmux delete/create/name window
+        tmxdw (cmd-button "xdotool key ctrl+b shift+7 y")   ;;create
+        tmxnw (cmd-button "xdotool key ctrl+b c")   ;;create
+        tmxrw (cmd-button "xdotool key ctrl+b comma")   ;;rename
+
+  ;; Nvim Window movement
+        nviml S-h
+        nvimd S-j
+        nvimu S-k
+        nvimr S-l
 )
-
 
 ;; Base layer - normal QWERTY with layer switching keys
 (deflayer base
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
-  caps @a_win s    @d_tmux    f    g    h    j    @k_tmux    l    @sc_win '    ret
+  caps @a_win s    @d_tmux f    @g_nvim @h_nvim    j    @k_tmux l    @sc_win '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
   lctl lmet lalt           spc            ralt rmet menu rctl
 )
@@ -80,25 +104,25 @@ tmx1 (send-keys C-b 1))
 (deflayer windowm
   @kwin @win1 @win2 @win3 @win4 @win5 @win6 @win7 @win8 @win9 @win0 _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    @fzf    _    @winr @wind @winu @winl    _    _    _
-  _    _    _    _    _    _    @focH @focJ @focK @focL     _    _
+  _    _    _    _    @fzf _    @winl @wind @winu @winr _    _    _
+  _    _    _    _    _    _    @focH @focJ @focK @focL _    _
   _    _    _              _              _    _    _    _
 )
 
-;; Tmux layer - activated by holding 'a' or ';'
-(deflayer windowm
-  @kwin @win1 @win2 @win3 @win4 @win5 @win6 @win7 @win8 @win9 @win0 _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    @fzf    _    @winr @wind @winu @winl    _    _    _
-  _    _    _    _    _    _    @focH @focJ @focK @focL     _    _
-  _    _    _              _              _    _    _    _
-)
-
-;; Layer 4 - Tmux commands (accessed by holding D or K)
+;; Tmux layer - activated by holding 'd' or 'k'
 (deflayer tmux
   _    @tmx1 @tmx2 @tmx3 @tmx4 @tmx5 @tmx6 @tmx7 @tmx8 @tmx9 @tmx0 _    _    _
+  _    _    _    _  @tmxrw    _    _    _    _    _    _    _    _    _
+  _    _    _  @tmxdw @fzf _    _  @tmxdwn @tmxup   _    _    _    _
+  _    _    _    _    _    _  @tmxnw    _    _    _    _    _
+  _    _    _              _              _    _    _    _
+)
+
+;;Nvim Layer - activated by holding 'g' or 'h'
+(deflayer nvim
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    @fzf    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _  @fzf    _  @nviml  @nvimd @nvimu @nvimr   _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _              _              _    _    _    _
 )
