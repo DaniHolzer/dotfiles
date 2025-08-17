@@ -29,8 +29,8 @@
   k_tmux (tap-hold-next-release 200 k (layer-toggle tmux))
 
   ;; Hold 'g' or 'h' for nvim layer
-  g_nvim (tap-hold-next-release 200 g (layer-toggle nvim))
-  h_nvim (tap-hold-next-release 200 h (layer-toggle nvim))
+  f_nvim (tap-hold-next-release 200 g (layer-toggle nvim))
+  j_nvim (tap-hold-next-release 200 h (layer-toggle nvim))
 
   ;; Window management shortcuts (i3wm style)
         ;; These will send Ctrl+Super+Alt+number for workspace switching
@@ -63,39 +63,45 @@
         focK A-S-k
         focL A-S-l
 
-  ;; Tmux shortcuts - Send Ctrl+B then number using xdotool
-        tmx1 (cmd-button "xdotool key ctrl+b 1")
-        tmx2 (cmd-button "xdotool key ctrl+b 2")
-        tmx3 (cmd-button "xdotool key ctrl+b 3")
-        tmx4 (cmd-button "xdotool key ctrl+b 4")
-        tmx5 (cmd-button "xdotool key ctrl+b 5")
-        tmx6 (cmd-button "xdotool key ctrl+b 6")
-        tmx7 (cmd-button "xdotool key ctrl+b 7")
-        tmx8 (cmd-button "xdotool key ctrl+b 8")
-        tmx9 (cmd-button "xdotool key ctrl+b 9")
-        tmx0 (cmd-button "xdotool key ctrl+b 0")
+  ;; Tmux
+        ;; Shortcuts - Send Ctrl+B then number using xdotool
+              tmx1 (cmd-button "xdotool key ctrl+b 1")
+              tmx2 (cmd-button "xdotool key ctrl+b 2")
+              tmx3 (cmd-button "xdotool key ctrl+b 3")
+              tmx4 (cmd-button "xdotool key ctrl+b 4")
+              tmx5 (cmd-button "xdotool key ctrl+b 5")
+              tmx6 (cmd-button "xdotool key ctrl+b 6")
+              tmx7 (cmd-button "xdotool key ctrl+b 7")
+              tmx8 (cmd-button "xdotool key ctrl+b 8")
+              tmx9 (cmd-button "xdotool key ctrl+b 9")
+              tmx0 (cmd-button "xdotool key ctrl+b 0")
 
-  ;; Tmux scroll down/up
-        tmxup C-u
-        tmxdwn C-d
+        ;; Scroll down/up
+              tmxup C-u
+              tmxdwn C-d
 
-  ;; Tmux delete/create/name window
-        tmxdw (cmd-button "xdotool key ctrl+b shift+7 y")   ;;create
-        tmxnw (cmd-button "xdotool key ctrl+b c")   ;;create
-        tmxrw (cmd-button "xdotool key ctrl+b comma")   ;;rename
+        ;; Delete/create/name window
+              tmxdw (cmd-button "xdotool key ctrl+b shift+7 y")   ;;create
+              tmxnw (cmd-button "xdotool key ctrl+b c")   ;;create
+              tmxrw (cmd-button "xdotool key ctrl+b comma")   ;;rename
 
-  ;; Nvim Window movement
-        nviml S-h
-        nvimd S-j
-        nvimu S-k
-        nvimr S-l
+  ;; Nvim
+        ;; Window movement
+              nviml S-h
+              nvimd S-j
+              nvimu S-k
+              nvimr S-l
+
+        ;; Nvim Page up/down
+              nvimup (cmd-button "xdotool key ctrl+p u")   ;;page up
+              nvimdwn (cmd-button "xdotool key ctrl+p d")   ;;page down
 )
 
 ;; Base layer - normal QWERTY with layer switching keys
 (deflayer base
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
-  caps @a_win s    @d_tmux f    @g_nvim @h_nvim    j    @k_tmux l    @sc_win '    ret
+  caps @a_win s    @d_tmux @f_nvim  g  h  @j_nvim    @k_tmux l    @sc_win '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
   lctl lmet lalt           spc            ralt rmet menu rctl
 )
@@ -105,7 +111,7 @@
   @kwin @win1 @win2 @win3 @win4 @win5 @win6 @win7 @win8 @win9 @win0 _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    @fzf _    @winl @wind @winu @winr _    _    _
-  _    _    _    _    _    _    @focH @focJ @focK @focL _    _
+  _    _    _    @kwin    _    _    @focH @focJ @focK @focL _    _
   _    _    _              _              _    _    _    _
 )
 
@@ -123,6 +129,6 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _  @fzf    _  @nviml  @nvimd @nvimu @nvimr   _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _  @nvimdwn  @nvimup    _    _    _    _
   _    _    _              _              _    _    _    _
 )
