@@ -30,19 +30,22 @@ floating_modifier $alt
 
 #- Login app start:
 # Start NordPass:
-#exec --no-startup-id /snap/bin/nordpass
+exec --no-startup-id /snap/bin/nordpass
 # Start Chrome:
 exec --no-startup-id /usr/bin/google-chrome-stable
-# Start Polypane:
-#exec --no-startup-id /usr/bin/polypane
+# Start Obsidian:
+exec --no-startup-id /snap/bin/obsidian
 # Start Alacritty:
 exec --no-startup-id /usr/bin/alacritty
+# Start Spotify:
+exec --no-startup-id /usr/bin/spotify
 
 #- Assign apps to workspaces:
 assign [class="^NordPass$"] $ws1
 assign [class="^Google-chrome$"] $ws2
-assign [class="^Polypane$"] $ws3
+assign [class="^Obsidian$"] $ws3
 assign [class="^Alacritty$"] $ws4
+assign [class="^Spotify$"] $ws5
 
 #- Assign workspaces to monitors:
 set $LaptopMonitor eDP-1
@@ -52,8 +55,8 @@ workspace 1 output $BigMonitor
 workspace 2 output $BigMonitor
 workspace 3 output $BigMonitor
 workspace 4 output $BigMonitor
-workspace 5 output $LaptopMonitor
-workspace 6 output $LaptopMonitor
+workspace 5 output $BigMonitor
+workspace 6 output$BigMonitor
 workspace 7 output $LaptopMonitor
 
 #------------------------------------------------------------------------------
