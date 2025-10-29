@@ -8,25 +8,35 @@ set $ctrl Control
 set $esc Escape
 
 #- Initialize workspace variables:
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+set $ws10 10"
 
 # Border color:                         Border  Backgr. Text     Indicator  Child-Border
-for_window [class="^.*"] client.focused #569cd6 #569cd6 #ababab  #569cd6    #606366
+client.focused                          #569cd6 #569cd6 #ababab #569cd6 #606366
 # Border size:
 for_window [class="^.*"] border pixel 1
 # Font for window titles and status bar:
 font pango:monopersonalspace 8
 # Use Mouse+alt to drag floating windows:
 floating_modifier $alt
+
+
+# Start applications on designated workspaces with small delays and workspace switches
+# Switch to workspace 1 and start nordpass
+workspace $ws1
+exec --no-startup-id /snap/bin/nordpass
+
+# Switch to workspace 3 and start obsidian
+workspace $ws3
+exec --no-startup-id /snap/bin/obsidian
 
 #- Assign apps to workspaces:
 assign [class="^NordPass$"] $ws1
@@ -35,22 +45,13 @@ assign [class="^Obsidian$"] $ws3
 assign [class="^Alacritty$"] $ws4
 assign [class="^Spotify$"] $ws5
 
-# Start applications on designated workspaces with small delays and workspace switches
-# Switch to workspace 1 and start nordpass
-workspace $ws1
-exec --no-startup-id && /snap/bin/nordpass
-
-# Switch to workspace 3 and start obsidian
-workspace $ws3
-exec --no-startup-id && /snap/bin/obsidian
-
 # Other startup apps without workspace switching
 # Start NordPass:
-#exec --no-startup-id sleep 2 && /snap/bin/nordpass
+# exec --no-startup-id sleep 2 && /snap/bin/nordpass
 # Start Chrome:
 exec --no-startup-id /usr/bin/google-chrome-stable
 # Start Obsidian:
-#exec --no-startup-id sleep 1 && /snap/bin/obsidian
+# exec --no-startup-id sleep 1 && /snap/bin/obsidian
 # Start Alacritty:
 exec --no-startup-id /usr/bin/alacritty
 # Start Spotify:
@@ -67,7 +68,7 @@ workspace 2 output $BigMonitor
 workspace 3 output $BigMonitor
 workspace 4 output $BigMonitor
 workspace 5 output $BigMonitor
-workspace 6 output$BigMonitor
+workspace 6 output $BigMonitor
 workspace 7 output $LaptopMonitor
 
 #------------------------------------------------------------------------------
