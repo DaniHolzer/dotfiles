@@ -9,20 +9,22 @@ DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 #-----------------------------------------------------------------------------
 #  Git Configs
 #-----------------------------------------------------------------------------
-# Create symling:
+# Create symlink:
 ln -s /path/to/file /path/to/symlink_file
   # Creates a symbolic link named symlink_file in the current directory,
   # pointing to the file /path/to/file
 
-# Create symling to git configfile in dotfiles:
+# Open ~/personal/github, ~/personal/githlab, ~/work/github, ~/work/gitlab
+# Create symlink to account-config file in dotfiles:
 ln -s home/holze/dotfiles/git/account-config/work/github ./.gitconfig
+# By creating the symlink to account-config you can have the .gitconfig files
+# stored central in dotfiles and not decentral in your github... directoies
+
+
+
 
 # Delete ~/.gitconfig:
 rm -rf $HOME/.gitconfig
-
-# Create symlink to ~/.config/dotfiles/git/config-files/global:
-ln -s ~/.config/dotfiles/git/config-files/global $HOME/.gitconfig
-
 
 
 #-----------------------------------------------------------------------------

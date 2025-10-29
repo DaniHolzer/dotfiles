@@ -28,24 +28,33 @@ font pango:monopersonalspace 8
 # Use Mouse+alt to drag floating windows:
 floating_modifier $alt
 
-#- Login app start:
-# Start NordPass:
-exec --no-startup-id /snap/bin/nordpass
-# Start Chrome:
-exec --no-startup-id /usr/bin/google-chrome-stable
-# Start Obsidian:
-exec --no-startup-id /snap/bin/obsidian
-# Start Alacritty:
-exec --no-startup-id /usr/bin/alacritty
-# Start Spotify:
-exec --no-startup-id /usr/bin/spotify
-
 #- Assign apps to workspaces:
 assign [class="^NordPass$"] $ws1
 assign [class="^Google-chrome$"] $ws2
 assign [class="^Obsidian$"] $ws3
 assign [class="^Alacritty$"] $ws4
 assign [class="^Spotify$"] $ws5
+
+# # Start applications on designated workspaces with small delays and workspace switches
+# workspace $ws1
+# exec --no-startup-id sleep 2 && /snap/bin/nordpass
+
+# workspace $ws3
+# exec --no-startup-id sleep 1 && /snap/bin/obsidian
+
+# Other startup apps without workspace switching
+# Start NordPass:
+exec --no-startup-id sleep 2 && /snap/bin/nordpass
+# Start Chrome:
+exec --no-startup-id /usr/bin/google-chrome-stable
+# Start Obsidian:
+exec --no-startup-id sleep 1 && /snap/bin/obsidian
+# Start Alacritty:
+exec --no-startup-id /usr/bin/alacritty
+# Start Spotify:
+exec --no-startup-id /usr/bin/spotify
+
+
 
 #- Assign workspaces to monitors:
 set $LaptopMonitor eDP-1
