@@ -113,7 +113,7 @@
 (deflayer windowm
   @kwin @win1 @win2 @win3 @win4 @win5 @win6 @win7 @win8 @win9 @win0 _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _  @appl  _    _    @fzf _    @winl @wind @winu @winr _    _    _
+  _ @appl  _    _    @fzf _    @winl @wind @winu @winr _    _    _
   _    _    _    @kwin    _    _    @focH @focJ @focK @focL _    _
   _    _    _              _              _    _    _    _
 )
