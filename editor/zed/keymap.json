@@ -1,0 +1,72 @@
+[
+  {
+    "context": "vim_mode == normal && !menu",
+    "bindings": {
+      "shift-u": "editor::Redo",
+      "ctrl-a": "editor::SelectAll",
+      "space /": "vim::PushToggleComments",
+      "space |": "pane::SplitRight",
+      "space -": "pane::SplitDown",
+      "space m": "workspace::ToggleZoom",
+      "space c a": "editor::ToggleCodeActions",
+      "space r n": "editor::Rename",
+      "space d": "editor::Hover",
+      "space m p": "editor::Format",
+      "space g h": "editor::ToggleSelectedDiffHunks",
+      "space f f": "file_finder::Toggle",
+      "space f t": "pane::DeploySearch",
+      "space f r": "projects::OpenRecent",
+      "space f b": "tab_switcher::Toggle",
+      "space n t": "workspace::NewFile",
+      "space q t": "pane::CloseActiveItem",
+      "space t t": "workspace::ToggleLeftDock",
+      "space e t": "project_panel::ToggleFocus",
+      "space r s": "editor::RestartLanguageServer",
+      "shift-h": "workspace::ActivatePaneLeft",
+      "shift-l": "workspace::ActivatePaneRight"
+    }
+  },
+  {
+    "context": "vim_mode == visual && !menu",
+    "bindings": {
+      "space /": "vim::ToggleComments",
+      "space m p": "editor::Format"
+    }
+  },
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      "ctrl-space": "editor::ShowCompletions"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-`": "terminal_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "ProjectPanel && !editing",
+    "bindings": {
+      "enter": ["workspace::SendKeystrokes", "space cmd-shift-e"],
+      "o": "project_panel::OpenPermanent",
+      "|": "project_panel::OpenSplitVertical",
+      "a": "project_panel::NewFile",
+      "shift-a": "project_panel::NewDirectory",
+      "r": "project_panel::Rename",
+      "d": "project_panel::Delete",
+      "x": "project_panel::Cut",
+      "c": "project_panel::Copy",
+      "p": "project_panel::Paste",
+      "y": "project_panel::CopyPath",
+      "shift-y": "project_panel::CopyRelativePath"
+    }
+  },
+  {
+    "context": "menu",
+    "bindings": {
+      "ctrl-j": "menu::SelectNext",
+      "ctrl-k": "menu::SelectPrevious"
+    }
+  }
+]

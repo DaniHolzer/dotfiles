@@ -1,0 +1,275 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  // =========================================================================
+  // Auto-Save (like auto-save.nvim)
+  // =========================================================================
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 500
+    }
+  },
+
+  // =========================================================================
+  // Formatting (like conform.nvim)
+  // =========================================================================
+  "format_on_save": "on",
+  "formatter": "auto",
+  "remove_trailing_whitespace_on_save": true,
+  "ensure_final_newline_on_save": true,
+
+  // =========================================================================
+  // Editor Behavior (like options.lua)
+  // =========================================================================
+  "tab_size": 4,
+  "hard_tabs": false,
+  "use_autoclose": true,
+  "show_whitespaces": "none",
+  "vertical_scroll_margin": 3,
+  "scroll_sensitivity": 1.0,
+
+  // =========================================================================
+  // Indent Guides (like indent-blankline.nvim)
+  // =========================================================================
+  "indent_guides": {
+    "enabled": true,
+    "line_width": 1,
+    "active_line_width": 1,
+    "coloring": "indent_aware",
+    "background_coloring": "disabled"
+  },
+
+  // =========================================================================
+  // Git Integration (like gitsigns.nvim)
+  // =========================================================================
+  "git": {
+    "git_gutter": "tracked_files",
+    "inline_blame": {
+      "enabled": true,
+      "delay_ms": 500,
+      "show_commit_summary": true
+    }
+  },
+
+  // =========================================================================
+  // Linked Edits (like nvim-ts-autotag for HTML tags)
+  // =========================================================================
+  "linked_edits": true,
+
+  // =========================================================================
+  // Inlay Hints (like LSP inlay hints)
+  // =========================================================================
+  "inlay_hints": {
+    "enabled": true,
+    "show_type_hints": true,
+    "show_parameter_hints": true,
+    "show_other_hints": true,
+    "edit_debounce_ms": 700,
+    "scroll_debounce_ms": 50
+  },
+
+  // =========================================================================
+  // Vim Mode Settings
+  // =========================================================================
+  "vim": {
+    "use_system_clipboard": "always",
+    "use_smartcase_find": true,
+    "use_multiline_find": true,
+    "highlight_on_yank_duration": 200
+  },
+  "relative_line_numbers": true,
+
+  // =========================================================================
+  // UI and Appearance
+  // =========================================================================
+  "agent_buffer_font_size": 14.0,
+  "auto_install_extensions": {
+    "material-icon-theme": true,
+    "editorconfig": true,
+    "html": true,
+    "toml": true,
+    "git-firefly": true,
+    "dockerfile": true,
+    "php": true,
+    "sql": true,
+    "scss": true,
+    "lua": true,
+    "xml": true,
+    "csharp": true,
+    "emmet": true,
+    "log": true,
+    "prisma": true,
+    "biome": true,
+    "docker-compose": true,
+    "csv": true,
+    "graphql": true,
+    "python-lsp": true,
+    "ini": true,
+    "codebook-spell-checker": true,
+    "basher": true,
+    "python-requirements-and-constraints": true,
+    "env": true,
+    "golangci-lint": true,
+    "live-server": true,
+    "blade": true,
+    "powershell": true,
+    "ansible": true,
+    "react-typescript-snippets": true,
+    "marksman": true,
+    "twig": true,
+    "tmux": true,
+    "rest": true,
+    "http": true,
+    "plantuml": true,
+    "ssh-config": true,
+    "gitlab-ci-ls": true,
+    "tree-sitter-query": true,
+    "graphviz": true,
+    "pest": true,
+    "json5": true,
+    "psalm": true,
+    "color-highlight": true,
+    "react-snippets": true,
+    "postgres-language-server": true,
+    "github-actions": true,
+    "django": true
+  },
+  "telemetry": {
+    "diagnostics": true,
+    "metrics": false
+  },
+  "use_system_window_tabs": true,
+  "preview_tabs": {
+    "enabled": true,
+    "enable_preview_from_project_panel": true,
+    "enable_preview_from_file_finder": true,
+    "enable_preview_from_code_navigation": true
+  },
+  "tabs": {
+    "file_icons": true,
+    "git_status": true
+  },
+  "rounded_selection": false,
+  "minimap": {
+    "show": "never"
+  },
+  "vim_mode": true,
+  "icon_theme": "Material Icon Theme",
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "MannyDark"
+  },
+  "buffer_font_features": {
+    "calt": false
+  },
+  "active_pane_modifiers": {
+    "inactive_opacity": 1.0
+  },
+  "unnecessary_code_fade": 0.0,
+  "cursor_blink": false,
+  "hide_mouse_while_typing": true,
+  "show_wrap_guides": true,
+  "wrap_guides": [80],
+  "languages": {
+    "Lua": {
+      "wrap_guides": [80, 120],
+      "formatter": "language_server"
+    },
+    "PHP": {
+      "wrap_guides": [80, 120],
+      "formatter": "language_server"
+    },
+    "Blade": {
+      "wrap_guides": [100]
+    },
+    "HTML": {
+      "wrap_guides": [100],
+      "formatter": "language_server"
+    },
+    "TSX": {
+      "wrap_guides": [100],
+      "formatter": "language_server"
+    },
+    "JSX": {
+      "wrap_guides": [100],
+      "formatter": "language_server"
+    },
+    "Twig": {
+      "wrap_guides": [100]
+    },
+    "CSS": {
+      "wrap_guides": [80],
+      "formatter": "language_server"
+    },
+    "SCSS": {
+      "wrap_guides": [80],
+      "formatter": "language_server"
+    },
+    "Shell Script": {
+      "wrap_guides": [80],
+      "formatter": {
+        "external": {
+          "command": "shfmt",
+          "arguments": ["-i", "2", "-"]
+        }
+      }
+    },
+    "Markdown": {
+      "wrap_guides": [80],
+      "soft_wrap": "preferred_line_length",
+      "format_on_save": "off"
+    },
+    "JavaScript": {
+      "wrap_guides": [80],
+      "formatter": "language_server"
+    },
+    "TypeScript": {
+      "wrap_guides": [80],
+      "formatter": "language_server"
+    },
+    "JSON": {
+      "formatter": "language_server"
+    },
+    "JSONC": {
+      "formatter": "language_server"
+    },
+    "Python": {
+      "formatter": {
+        "external": {
+          "command": "black",
+          "arguments": ["-"]
+        }
+      }
+    },
+    "YAML": {
+      "tab_size": 2
+    }
+  },
+
+  // =========================================================================
+  // File Type Associations (like autocmds.lua JSONC detection)
+  // =========================================================================
+  "file_types": {
+    "JSONC": [
+      "tsconfig.json",
+      "tsconfig.*.json",
+      "jsconfig.json",
+      "jsconfig.*.json",
+      ".babelrc",
+      ".eslintrc",
+      ".eslintrc.json",
+      ".prettierrc",
+      ".prettierrc.json",
+      ".swcrc"
+    ]
+  }
+}
