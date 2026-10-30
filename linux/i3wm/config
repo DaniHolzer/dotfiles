@@ -28,6 +28,10 @@ font pango:monopersonalspace 8
 # Use Mouse+alt to drag floating windows:
 floating_modifier $alt
 
+# Arrange monitors with the matching autorandr profile (~/.config/autorandr).
+# Plugging/unplugging the monitor is handled by autorandr's udev hook.
+exec_always --no-startup-id autorandr --change
+
 # Startup apps
 # Start Chrome:
 exec --no-startup-id /usr/bin/google-chrome-stable
@@ -35,22 +39,22 @@ exec --no-startup-id /usr/bin/google-chrome-stable
 exec --no-startup-id /usr/bin/alacritty
 # Start Spotify:
 exec --no-startup-id /usr/bin/spotify
-# Start NordPass:
-exec --no-startup-id sh -c "sleep 5 && /snap/bin/nordpass"
-# Switch to workspace 3 and start Obsidian:
-#exec --no-startup-id /snap/bin/obsidian
-exec --no-startup-id sh -c "i3-msg workspace 3; sleep 1; /snap/bin/obsidian"
+# Start NordPass (its own snap autostart is disabled, otherwise it starts twice):
+exec --no-startup-id /snap/bin/nordpass
+# Start Obsidian:
+exec --no-startup-id /snap/bin/obsidian
 
-#- Assign apps to workspaces:
-assign [class="^NordPass$"] $ws1
-assign [class="^Google-chrome$"] $ws2
-assign [class="^Obsidian$"] $ws3
-assign [class="^Alacritty$"] $ws4
-assign [class="^Spotify$"] $ws5
+#- Assign apps to workspaces (classes are case-insensitive, snaps changed them):
+assign [class="(?i)^nordpass$"] $ws1
+assign [class="(?i)^google-chrome$"] $ws2
+assign [class="(?i)obsidian"] $ws3
+assign [class="(?i)^alacritty$"] $ws4
+assign [class="(?i)^spotify$"] $ws5
 
 #- Assign workspaces to monitors:
+# The dock port name changes (DP-1-3 / DP-2-3), i3 takes the first one present.
 set $LaptopMonitor eDP-1
-set $BigMonitor DP-2-3
+set $BigMonitor DP-1-3 DP-2-3
 
 workspace 1 output $BigMonitor
 workspace 2 output $BigMonitor
