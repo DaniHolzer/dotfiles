@@ -1,0 +1,3 @@
+# Only these OneDrive folders are synced to ~/OneDrive (onedrive client, abraunegg).
+# After changing this file, run: onedrive --sync --resync
+/Lohnstreifen/Vermögen
