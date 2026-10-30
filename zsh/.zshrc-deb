@@ -130,3 +130,10 @@ bindkey -s ^f "~/dotfiles/tmux/tmux-sessionizer.sh\n"
 # Set terminal emulator:
 export TERM="alacritty"
 alias sail='./vendor/bin/sail'
+
+# bun completions
+[ -s "/home/holze/.bun/_bun" ] && source "/home/holze/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
