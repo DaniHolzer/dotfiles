@@ -11,3 +11,11 @@ alias sshpgh='ssh-add ~/.ssh/personal-github'                # Activate personal
 alias sshpgl='ssh-add ~/.ssh/personal-gitlab'                # Activate personal GitLab SSH.
 alias sshfgl='ssh-add ~/.ssh/fitcrew-ssh-key-gitlab'         # Activate fitcrew GitLab SSH.
 alias sshfgh='ssh-add ~/.ssh/fitcrew-ssh-key-github'         # Activate fitcrew GitHub SSH.
+
+sshstore() {                                                 # Save the Git key passphrases in the GNOME keyring (once).
+    local key
+    for key in $SSH_GIT_KEYS; do
+        echo "Passphrase for $key:"
+        secret-tool store --label="SSH passphrase $key" ssh-key "$HOME/.ssh/$key"
+    done
+}
