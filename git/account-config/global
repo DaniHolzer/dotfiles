@@ -1,40 +1,11 @@
 #------------------------------------------------------------------------------
-#-----  Repository Specific Configuration
-
-# Personal GitHub:
-[includeIf "gitdir:~/personal/github/*"]
-    path = ~/dotfiles/git/account-config/github
-
-# Personal GitLab:
-[includeIf "gitdir:~/personal/gitlab/*"]
-    path = ~/dotfiles/git/account-config/gitlab
-
-# dotfiles:
-[includeIf "gitdir:~/dotfiles/*"]
-    path = ~/dotfiles/git/account-config/github
-
-# ansible:
-[includeIf "gitdir:~/ansible/*"]
-    path = ~/dotfiles/git/account-config/github
-
-# Work fitcrew GitHub:
-[includeIf "gitdir:~/work/fitcrew/github/*"]
-    path = ~/dotfiles/git/account-config/work/github
-
-# Work fitcrew GitLab:
-[includeIf "gitdir:~/work/fitcrew/gitlab/*"]
-    path = ~/dotfiles/git/account-config/work/gitlab
-
-
-
-#------------------------------------------------------------------------------
 #-----  Global Git Configuration
 
 [color]
     ui = auto
 [core]
     editor = nvim
-    excludesfile = ~/.gitignore
+	excludesfile = /home/holze/.gitignore_global
 [diff]
     tool = vimdiff
 [fetch]
@@ -54,3 +25,32 @@
 [user]
 	email = holzerdaniel01@gmail.com
 	name = DaniHolzer
+
+
+
+#------------------------------------------------------------------------------
+#-----  Repository Specific Configuration
+
+# Personal GitHub:
+[includeIf "gitdir:~/personal/github/"]
+    path = ~/dotfiles/git/account-config/personal/github
+
+# Personal GitLab:
+[includeIf "gitdir:~/personal/gitlab/"]
+    path = ~/dotfiles/git/account-config/personal/gitlab
+
+# dotfiles:
+[includeIf "gitdir:~/dotfiles/"]
+    path = ~/dotfiles/git/account-config/personal/github
+
+# ansible:
+[includeIf "gitdir:~/ansible/"]
+    path = ~/dotfiles/git/account-config/personal/github
+
+# Work fitcrew GitHub:
+[includeIf "gitdir:~/work/github/"]
+    path = ~/dotfiles/git/account-config/work/github
+
+# Work fitcrew GitLab:
+[includeIf "gitdir:~/work/gitlab/"]
+    path = ~/dotfiles/git/account-config/work/gitlab

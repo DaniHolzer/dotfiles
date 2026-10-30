@@ -6,3 +6,6 @@
 [user]
     name     = daniel-holzer
     email    = daniel.holzer@fitcrew.tech
+
+[core]
+    sshCommand = ssh -i ~/.ssh/fitcrew-ssh-key-github

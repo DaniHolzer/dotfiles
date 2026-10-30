@@ -6,3 +6,6 @@
 [user]
     name     = Dani Holzer
     email    = holzerdaniel01@gmail.com
+
+[core]
+    sshCommand = ssh -i ~/.ssh/personal-gitlab

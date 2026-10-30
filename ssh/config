@@ -1,0 +1,43 @@
+#------------------------------------------------------------------------------
+#----- SSH Config  (symlinked to ~/.ssh/config)
+#
+# Default key per host:
+#   github.com -> personal-github         gitlab.com -> fitcrew-ssh-key-gitlab
+# Other accounts per repo directory via core.sshCommand in
+# ~/dotfiles/git/account-config/*, or for cloning via the aliases below:
+#   git clone git@github-fitcrew:org/repo.git
+#   git clone git@gitlab-personal:group/repo.git
+
+# Personal GitHub (default):
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/personal-github
+
+# fITcrew GitHub:
+Host github-fitcrew
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/fitcrew-ssh-key-github
+
+# fITcrew GitLab (default):
+Host gitlab.com
+    HostName gitlab.com
+    User git
+    IdentityFile ~/.ssh/fitcrew-ssh-key-gitlab
+
+# Personal GitLab:
+Host gitlab-personal
+    HostName gitlab.com
+    User git
+    IdentityFile ~/.ssh/personal-gitlab
+
+# Obsidian notebook deploy key:
+Host github-notebook
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/github_notebook_deploy_key
+
+Host *
+    AddKeysToAgent yes
+    IdentitiesOnly yes
