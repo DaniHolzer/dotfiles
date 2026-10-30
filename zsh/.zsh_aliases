@@ -54,4 +54,4 @@ alias mac='ifconfig | grep ether | cut -d" " -f10'                              
 alias locate='mlocate -ei'                                                                                                                 # Use mlocate instead of locate on only existing files by a case insensitive search.
 alias which='which -a'                                                                                                                     # Show all executables, not just one.
 #alias find=''
-alias grep='grep -iv "^$'                                                                                                                  # Use the case insensitive search for grep command and don't display empty lines.
+alias grep='grep -i'                                                                                                                       # Use the case insensitive search for grep command.

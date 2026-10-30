@@ -14,7 +14,7 @@ system_check() {
     [ -f /var/run/reboot-required ] && issues+=("Neustart nötig ($(sort -u /var/run/reboot-required.pkgs 2>/dev/null | tr '\n' ' '))")
 
     # Pending updates, as counted by Ubuntu's update-notifier:
-    local pending=$(grep -oE '^[0-9]+ updates? can be applied' /var/lib/update-notifier/updates-available 2>/dev/null | grep -oE '^[0-9]+')
+    local pending=$(command grep -oE '^[0-9]+ updates? can be applied' /var/lib/update-notifier/updates-available 2>/dev/null | command grep -oE '^[0-9]+')
     [ "${pending:-0}" -ge 20 ] && issues+=("$pending Updates offen -> 'update' ausführen")
 
     # Last automatic update run failed:
