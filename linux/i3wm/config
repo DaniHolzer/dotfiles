@@ -31,6 +31,9 @@ floating_modifier $alt
 # Arrange monitors with the matching autorandr profile (~/.config/autorandr).
 # Plugging/unplugging the monitor is handled by autorandr's udev hook.
 exec_always --no-startup-id autorandr --change
+# Paint the background black once, otherwise leftover pixels (e.g. a Chrome icon)
+# stay visible on empty workspaces:
+exec_always --no-startup-id xsetroot -solid "#000000"
 
 # Startup apps
 # Start Chrome:
