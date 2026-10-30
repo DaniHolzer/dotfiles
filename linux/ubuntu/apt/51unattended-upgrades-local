@@ -1,0 +1,20 @@
+//-----------------------------------------------------------------------------
+//----- Unattended Upgrades: local additions
+//
+// Copy to /etc/apt/apt.conf.d/ (root-owned, not symlinked):
+//   sudo cp ~/dotfiles/linux/ubuntu/apt/51unattended-upgrades-local /etc/apt/apt.conf.d/
+// Ubuntu's default (50unattended-upgrades) only installs security updates.
+// Everything else (PPAs, Docker, Node, ...) is updated with `update`.
+
+// Also install the normal Ubuntu updates, and Google Chrome:
+Unattended-Upgrade::Allowed-Origins {
+    "${distro_id}:${distro_codename}-updates";
+};
+Unattended-Upgrade::Origins-Pattern {
+    "origin=Google LLC";
+};
+
+// Clean up old kernels and unused dependencies, never reboot on its own:
+Unattended-Upgrade::Remove-Unused-Kernel-Packages "true";
+Unattended-Upgrade::Remove-Unused-Dependencies "true";
+Unattended-Upgrade::Automatic-Reboot "false";
