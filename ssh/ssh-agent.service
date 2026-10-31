@@ -1,0 +1,16 @@
+# Shared ssh-agent for the whole login session (terminals and GUI apps like
+# Obsidian), on the socket ssh_agent.zsh expects. Replaces the ssh emulation of
+# gpg-agent and gcr (masked), which Ubuntu 24.04 enables and which asks for a
+# new passphrase whenever a key is added to it.
+# Linked to ~/.config/systemd/user/ssh-agent.service.
+
+[Unit]
+Description=Shared SSH agent
+
+[Service]
+ExecStartPre=/usr/bin/rm -f %t/ssh-agent.socket
+ExecStart=/usr/bin/ssh-agent -D -a %t/ssh-agent.socket
+ExecStartPost=/usr/bin/systemctl --user set-environment SSH_AUTH_SOCK=%t/ssh-agent.socket
+
+[Install]
+WantedBy=default.target
