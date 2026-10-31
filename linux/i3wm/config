@@ -38,8 +38,8 @@ exec_always --no-startup-id xsetroot -solid "#000000"
 # Startup apps
 # Start Chrome:
 exec --no-startup-id /usr/bin/google-chrome-stable
-# Start Alacritty:
-exec --no-startup-id /usr/bin/alacritty
+# Start Ghostty:
+exec --no-startup-id /snap/bin/ghostty
 # Start Spotify:
 exec --no-startup-id /usr/bin/spotify
 # Start NordPass (its own snap autostart is disabled, otherwise it starts twice):
@@ -51,7 +51,7 @@ exec --no-startup-id /snap/bin/obsidian
 assign [class="(?i)^nordpass$"] $ws1
 assign [class="(?i)^google-chrome$"] $ws2
 assign [class="(?i)obsidian"] $ws3
-assign [class="(?i)^alacritty$"] $ws4
+assign [class="^com\.mitchellh\.ghostty$"] $ws4
 assign [class="(?i)^spotify$"] $ws5
 
 #- Assign workspaces to monitors:

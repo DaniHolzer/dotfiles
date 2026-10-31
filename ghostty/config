@@ -1,0 +1,97 @@
+#------------------------------------------------------------------------------
+#---  Ghostty Terminal Emulator Configuration (Linux / i3)
+#------------------------------------------------------------------------------
+# Based on Manuel's config, reduced to what differs from Ghostty's defaults.
+# Ghostty only allows comments on their own line, never after a value.
+# All options:     ghostty +show-config --default --docs | less
+# Check config:    ghostty +validate-config
+# Reload config:   ctrl+shift+,
+
+
+#------------------------------------------------------------------------------
+# Font
+
+font-family               = "SpaceMono Nerd Font Mono"
+font-size                 = 12
+font-synthetic-style      = bold,italic,bold-italic
+
+# Disable all kind of font ligatures:
+font-feature              = -calt
+font-feature              = -dlig
+font-feature              = -liga
+
+# Letter spacing:
+adjust-cell-width         = -6%
+# Line height:
+adjust-cell-height        = 40%
+# Font arrangement on y-axis:
+adjust-font-baseline      = 1
+adjust-underline-position = 2
+# Cursor width in insert mode:
+adjust-cursor-thickness   = 1
+# Vertical lines like in folder trees and gutters:
+adjust-box-thickness      = 1
+
+
+#------------------------------------------------------------------------------
+# Colors (MannyDark, same as in Alacritty)
+
+background                = #191B1C
+foreground                = #ABABAB
+selection-foreground      = #ABABAB
+selection-background      = #606366
+bold-is-bright            = false
+
+palette = 0=#191B1C
+palette = 1=#FF0000
+palette = 2=#4FA544
+palette = 3=#E8BF6A
+palette = 4=#569CD6
+palette = 5=#C064C7
+palette = 6=#569CD6
+palette = 7=#ABABAB
+palette = 8=#ABABAB
+palette = 9=#FF0000
+palette = 10=#4FA544
+palette = 11=#E8BF6A
+palette = 12=#569CD6
+palette = 13=#C064C7
+palette = 14=#569CD6
+palette = 15=#ABABAB
+
+
+#------------------------------------------------------------------------------
+# Cursor
+
+cursor-color              = #569CD6
+cursor-text               = #191B1C
+cursor-style              = block
+cursor-style-blink        = false
+cursor-click-to-move      = true
+
+
+#------------------------------------------------------------------------------
+# Window (i3 manages windows and tmux manages splits, so keep Ghostty plain)
+
+# No GTK title/tab bar, i3 draws the frame:
+window-decoration         = none
+window-padding-x          = 4
+window-padding-y          = 2
+window-padding-balance    = true
+window-inherit-working-directory = true
+# tmux keeps the session anyway:
+confirm-close-surface     = false
+
+
+#------------------------------------------------------------------------------
+# Behaviour
+
+mouse-hide-while-typing   = true
+# Like save_to_clipboard in Alacritty:
+copy-on-select            = clipboard
+# OSC 52, e.g. nvim/tmux over SSH:
+clipboard-read            = allow
+clipboard-trim-trailing-spaces = true
+# No progress bar at the top (e.g. from Claude Code):
+progress-style            = false
+shell-integration-features = cursor,no-sudo,title,ssh-terminfo
