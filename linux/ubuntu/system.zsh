@@ -33,7 +33,8 @@ update() {                                                                   # U
     sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo apt clean || return 1
 
     print -P "%F{blue}%B== snap%b%f"
-    sudo snap refresh
+    # snap refuses to refresh apps that are open; close them and run `sudo snap refresh` again.
+    sudo snap refresh || print -P "%F{yellow}Some snaps were skipped because they are open -> close them, then 'sudo snap refresh'%f"
 
     print -P "%F{blue}%B== Neovim plugins and Mason tools%b%f"
     nvim --headless "+Lazy! sync" "+Lazy! load mason.nvim" "+MasonToolsUpdateSync" +qa >/dev/null 2>&1 \
