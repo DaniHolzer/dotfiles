@@ -27,6 +27,9 @@ ssh/config                      .ssh/config
 ssh/ssh-agent.service           .config/systemd/user/ssh-agent.service
 ssh/ssh-agent.service           .config/systemd/user/default.target.wants/ssh-agent.service
 
+# Claude Code
+claude/settings.json            .claude/settings.json
+
 # Desktop
 linux/i3wm/config               .config/i3/config
 linux/i3wm/i3status.conf        .config/i3status/config
