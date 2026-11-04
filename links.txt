@@ -1,0 +1,40 @@
+# Every symlink this machine should have. Applied by ./link.sh
+#
+# Format:  <source>  <target>
+#   source: relative to this repo, or starting with ~/ for files outside it
+#   target: relative to $HOME
+#
+# A leading ? marks an optional link: it is skipped while its source or the
+# target's parent folder does not exist yet. Used when another install creates
+# that folder (a program's installer may refuse to run if it already exists).
+
+# Shell
+zsh/.zshrc-deb                  .zshrc
+zsh/.zshenv                     .zshenv
+zsh/.zsh_aliases                .zsh_aliases
+?zsh/mannydark.zsh-theme        .oh-my-zsh/themes/mannydark.zsh-theme
+
+# Terminal
+ghostty/config                  .config/ghostty/config
+tmux/.tmux.conf                 .tmux.conf
+tmate/.tmate.conf               .tmate.conf
+fonts/SpaceMonoNerdFont         .local/share/fonts/SpaceMonoNerdFont
+
+# Git and SSH
+git/account-config/global       .gitconfig
+git/gitignore_global            .gitignore_global
+ssh/config                      .ssh/config
+ssh/ssh-agent.service           .config/systemd/user/ssh-agent.service
+ssh/ssh-agent.service           .config/systemd/user/default.target.wants/ssh-agent.service
+
+# Desktop
+linux/i3wm/config               .config/i3/config
+linux/i3wm/i3status.conf        .config/i3status/config
+linux/autorandr                 .config/autorandr
+linux/onedrive/sync_list        .config/onedrive/sync_list
+
+# Editors (Neovim's config is its own repo, cloned separately)
+?~/personal/github/nvim         .config/nvim
+editor/zed/settings.json        .config/zed/settings.json
+editor/zed/keymap.json          .config/zed/keymap.json
+editor/zed/themes/mannydark.json .config/zed/themes/mannydark.json

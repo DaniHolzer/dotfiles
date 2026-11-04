@@ -22,6 +22,10 @@ system_check() {
     [ -r "$log" ] && awk '/Starting unattended upgrades script/ {err=0} / ERROR / {err=1} END {exit !err}' "$log" \
         && issues+=("Letztes automatisches Update fehlgeschlagen -> $log")
 
+    # A dotfile symlink is missing or was replaced by a real file:
+    [ -x "$HOME/dotfiles/link.sh" ] && ! "$HOME/dotfiles/link.sh" --check >/dev/null 2>&1 \
+        && issues+=("Dotfile-Symlinks stimmen nicht -> '~/dotfiles/link.sh --check' zeigt welche")
+
     [ ${#issues} -eq 0 ] && return 0
     print -P "%F{red}%B⚠ System braucht Aufmerksamkeit:%b%f"
     local issue

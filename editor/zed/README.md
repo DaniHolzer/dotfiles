@@ -12,10 +12,10 @@ Configuration files for the Zed editor with vim mode and MannyDark theme.
 
 ### macOS / Linux
 
-Run the symlink script:
+On Linux, run the link script from the dotfiles root (the links are listed in `links.txt`):
 
 ```bash
-./create_zed_symlinks.sh
+~/dotfiles/link.sh
 ```
 
 Or manually create symlinks:
