@@ -5,11 +5,9 @@
 
 source ~/dotfiles/docker/docker_aliases.zsh             # Docker
 source ~/dotfiles/git/git_aliases.zsh                   # Git
-source ~/dotfiles/macos/homebrew/homebrew_aliases.zsh   # Homebrew
 source ~/dotfiles/laravel/laravel_aliases.zsh           # Laravel
 source ~/dotfiles/ssh/ssh_aliases.zsh                   # SSH
 source ~/dotfiles/tmux/tmux_aliases.zsh                 # tmux
-source ~/dotfiles/macos/yabai/yabai_aliases.zsh         # Yabai
 
 
 
